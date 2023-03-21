@@ -2,6 +2,15 @@ import os
 import smtplib
 import ssl
 
+from dotenv import load_dotenv
+
+
+def configure():
+    load_dotenv()
+
+
+configure()
+
 
 def send_email(message):
     host = "smtp.gmail.com"

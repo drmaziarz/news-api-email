@@ -1,14 +1,18 @@
+import os
+
 import requests
 
-from send_email import send_email
+from send_email import send_email, configure
+
+configure()
 
 topic = "apple"
-api_key = "38833ae41c784deb9d756f26b4635c94"
+
 url = "https://newsapi.org/v2/everything?" \
       f"q={topic}&" \
-      "from=2023-02-20&" \
+      "from=2023-02-21&" \
       "sortBy=publishedAt&" \
-      "apiKey=38833ae41c784deb9d756f26b4635c94&" \
+      f"apikey={os.getenv('api_key')}&" \
       "language=en"
 
 request = requests.get(url)
